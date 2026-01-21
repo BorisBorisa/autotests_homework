@@ -4,7 +4,7 @@ from datetime import datetime
 from time import perf_counter
 
 
-@pytest.fixture
+@pytest.fixture(scope="class")
 def show_start_end_datetime():
     print(f"Время начала тестов {datetime.now()}")
     yield
