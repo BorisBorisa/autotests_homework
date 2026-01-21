@@ -10,8 +10,31 @@ import pytest
 
 
 def all_division(*arg1):
-
     division = arg1[0]
     for i in arg1[1:]:
         division /= i
     return division
+
+
+class TestTask2:
+    @pytest.mark.smoke
+    def test_1(self):
+        assert all_division(8, 2) == 4
+
+    @pytest.mark.smoke
+    def test_2(self):
+        assert all_division(8, 2, 2) == 2
+
+    @pytest.mark.smoke
+    def test_3(self):
+        assert all_division(-16, 4, 2) == -2
+
+    def test_4(self):
+        assert all_division(100, 50, 2, 1) == 1
+
+    def test_5(self):
+        assert all_division(100, 0) == 0
+
+# python -m pytest task_2.py
+# python -m pytest task_2.py -m smoke
+# python -m pytest task_2.py -k "not 5 and not 1"

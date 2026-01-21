@@ -6,6 +6,9 @@ import pytest
 
 
 @pytest.mark.id_check(1, 2, 3)
-def test():
-    # Здесь пишем код
-    pass
+def test(request):
+    marks = request.keywords["pytestmark"]
+
+    for i in marks:
+        print(i.args)
+

@@ -14,6 +14,24 @@
 # iuy qnikkgxvxfxtxv
 
 import random
+import string
 
 
-# Здесь пишем код
+def random_str(min_range: int = 1, max_range: int = 15) -> str:
+    random_range = range(random.randrange(min_range, max_range))
+    random_string = ''.join((random.choice(string.ascii_lowercase) for _ in random_range))
+
+    return random_string
+
+
+def generate_random_name():
+    while True:
+        yield f'{random_str()} {random_str()}'
+
+
+gen = generate_random_name()
+
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
